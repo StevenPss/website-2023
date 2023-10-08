@@ -8,22 +8,22 @@ export const BASE_URL =
   `http://localhost:${process.env.PORT || 3000}`;
 
 export const defaultAuthor: AuthorType = {
-  name: "Amy Shields",
-  handle: "@amyshieldsfake",
+  name: "Steven Selolo",
+  handle: "@stevenselolo",
   socialProfiles,
-  email: "definitelyfake@nevermind.com",
-  website: "https://nextjs.org",
-  jobTitle: "Frontend Engineer & UI Designer",
-  company: "Unicorns & Co.",
+  email: "steven@stevenselolo.com",
+  website: "https://stevenselolo.com",
+  jobTitle: "Cloud Engineer",
+  company: "Liquid Intelligent Technologies",
   availableForWork: true,
   location: {
-    city: "Los Angeles",
-    media: "/losangeles.jpg",
+    city: "Johannesburg",
+    media: "/joburg.jpg",
   },
 };
 
 const defaultTitle = `${defaultAuthor.name}'s Blog`;
-const defaultDescription = `I'm ${defaultAuthor.name}. Building hackin’ cool digital products around the world 🌴.`;
+const defaultDescription = `I'm ${defaultAuthor.name}, a dragon slayer passionate about AWS, Security, and GenAI.`;
 
 const siteMetadata: SiteMetaData = {
   title: {
@@ -31,12 +31,12 @@ const siteMetadata: SiteMetaData = {
     default: defaultTitle,
   },
   description: defaultDescription,
-  siteRepo: "https://github.com/thedevdavid/digital-garden",
+  siteRepo: "https://github.com/StevenPss/website-2023",
   newsletterProvider: "mailerlite",
-  newsletterUrl: "https://developreneur.davidlevai.com",
+  newsletterUrl: "#",
   analyticsProvider: "umami",
   defaultTheme: "system",
-  activeAnnouncement: true,
+  activeAnnouncement: false,
   announcement: {
     buttonText: "Support on DevHunt →",
     link: "https://devhunt.org/tool/modern-developer-blog-template-digital-garden-starter",

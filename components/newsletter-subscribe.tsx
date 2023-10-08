@@ -97,7 +97,7 @@ const NewsletterSubscribe = ({
               </Button>
             </form>
           </Form>
-          {siteMetadata.newsletterUrl && (
+          {/* {siteMetadata.newsletterUrl && (
             <div className="mt-4 flex items-center justify-center">
               <Button asChild variant="ghost">
                 <Link href={siteMetadata.newsletterUrl} target="_blank">
@@ -105,7 +105,7 @@ const NewsletterSubscribe = ({
                 </Link>
               </Button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 

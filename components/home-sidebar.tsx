@@ -31,12 +31,12 @@ export function Sidebar({ className, ...props }: CardProps) {
             />
           </div>
         </CardContent>
-        <Separator />
-        <CardFooter>
+        {/* <Separator /> */}
+        {/* <CardFooter>
           <Button variant="ghost" className="w-full" disabled>
             Digital Nomad diaries <ArrowRight className="mr-2 h-4 w-4" />
           </Button>
-        </CardFooter>
+        </CardFooter> */}
       </Card>
       <Card className={cn(className)} {...props}>
         <CardHeader>

@@ -6,7 +6,7 @@ const content: ContentNavItem[] = [
   {
     title: "Blog",
     href: "/posts",
-    description: "Blogposts. Mostly about web development. Or chicken fingers",
+    description: "Blog posts. Mostly about AWS.",
   },
   {
     title: "Speaking",
@@ -21,12 +21,7 @@ const content: ContentNavItem[] = [
   {
     title: "Newsletter",
     href: siteMetadata.newsletterUrl as string,
-    description: "My newsletter about software development",
-  },
-  {
-    title: "Teaching",
-    href: "/teaching",
-    description: "I teach others. Sometimes for free, sometimes for money.",
+    description: "My newsletter about the AWS cloud",
   },
 ];
 
@@ -39,10 +34,10 @@ export const navigationLinks: NavItem[] = [
     title: "Projects",
     href: "/projects",
   },
-  {
-    title: "Uses",
-    href: "/uses",
-  },
+  // {
+  //   title: "Uses",
+  //   href: "/uses",
+  // },
   {
     title: "Now",
     href: "/now",

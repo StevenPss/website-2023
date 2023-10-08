@@ -34,8 +34,8 @@ export default async function Home() {
   return (
     <div className="pb-10">
       <HeroSimple
-        title="Building hackin’ cool digital products around the world 🌴."
-        subtitle="I'm Amy. Frontend engineer writing code and blog on the internet."
+        title="A dragon slayer interested in AWS, Security, and GenAI."
+        subtitle="I'm Steven. A highly driven 8xAWS Certified Cloud Engineer adept at crafting and executing cloud-based solutions leveraging AWS services."
       />
       <div className="container mt-12 max-w-6xl">
         <div className="grid grid-cols-1 place-items-start justify-between gap-12 lg:grid-cols-3">
@@ -59,15 +59,14 @@ export default async function Home() {
       </div>
       {siteMetadata.newsletterUrl && (
         <NewsletterSubscribe
-          title="I also write deep dives in email"
-          description="I write about coding, design, digital nomad life, and solopreneurship. Join over 1,000 other developers in
-            getting better in business. Unsubscribe whenever."
+          title="Want to be a 🐉 dragon slayer ⚔️?"
+          description="Fortune favours the bold my dear friend. Unsubscribe whenever."
           buttonText="Send me the emails"
         />
       )}
       {aboutPage && (
         <div className="container max-w-6xl">
-          <h2 className="mb-8 font-heading text-4xl font-bold">Who&apos;s this girl again?</h2>
+          <h2 className="mb-8 font-heading text-4xl font-bold">Who&apos;s this guy again?</h2>
           <div className="grid grid-cols-1 place-items-start justify-between gap-12 lg:grid-cols-3">
             <div className="col-span-1 mx-auto flex flex-col items-center justify-center">
               <Image

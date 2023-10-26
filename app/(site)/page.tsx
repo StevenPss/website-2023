@@ -34,7 +34,7 @@ export default async function Home() {
   return (
     <div className="pb-10">
       <HeroSimple
-        title="A dragon slayer interested in AWS, Security, and GenAI."
+        title="A dragon slayer 🐉 interested in AWS, Security, and GenAI."
         subtitle="I'm Steven. A highly driven 8xAWS Certified Cloud Engineer adept at crafting and executing cloud-based solutions leveraging AWS services."
       />
       <div className="container mt-12 max-w-6xl">

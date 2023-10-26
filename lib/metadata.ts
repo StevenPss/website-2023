@@ -15,7 +15,7 @@ export const defaultAuthor: AuthorType = {
   website: "https://stevenselolo.com",
   jobTitle: "Cloud Engineer",
   company: "Liquid Intelligent Technologies",
-  availableForWork: true,
+  availableForWork: false,
   location: {
     city: "Johannesburg",
     media: "/joburg.jpg",

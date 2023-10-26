@@ -24,15 +24,15 @@ export function Sidebar({ className, ...props }: CardProps) {
             <p className="ml-2 mr-auto text-sm font-medium leading-none">{defaultAuthor.location.city}</p>
             <Image
               src={defaultAuthor.location.media}
-              alt="Los Angeles"
+              alt="Johannesburg"
               width={56}
               height={56}
               className="h-16 w-16 rounded-md object-cover"
             />
           </div>
         </CardContent>
-        {/* <Separator /> */}
-        {/* <CardFooter>
+        {/* <Separator />
+        <CardFooter>
           <Button variant="ghost" className="w-full" disabled>
             Digital Nomad diaries <ArrowRight className="mr-2 h-4 w-4" />
           </Button>
@@ -52,19 +52,23 @@ export function Sidebar({ className, ...props }: CardProps) {
             >
               <Pencil />
               <p className="ml-2 mr-auto text-sm font-medium leading-none">{project.title}</p>
-              {project.mediaType === "video" ? (
-                <video autoPlay loop muted playsInline className="h-16 w-16 rounded-md object-cover">
-                  <source src="/project-garden.webm" type="video/webm" />
-                  <source src="/project-garden.mp4" type="video/mp4" />
-                </video>
+              {project.mediaSrc ? (
+                project.mediaType === "video" ? (
+                  <video autoPlay loop muted playsInline className="h-16 w-16 rounded-md object-cover">
+                    <source src="/project-garden.webm" type="video/webm" />
+                    <source src="/project-garden.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={project.mediaSrc}
+                    alt={project.title}
+                    width={56}
+                    height={56}
+                    className="h-16 w-16 rounded-md object-cover"
+                  />
+                )
               ) : (
-                <Image
-                  src={project.mediaSrc}
-                  alt={project.title}
-                  width={56}
-                  height={56}
-                  className="h-16 w-16 rounded-md object-cover"
-                />
+                <div className="flex h-16 w-16 items-center justify-end">WIP</div>
               )}
             </Link>
           ))}

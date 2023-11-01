@@ -4,5 +4,6 @@ export const projects = [
     description: `SaaS WIP`,
     href: "#",
     mediaSrc: "",
+    mediaType: "",
   },
 ];

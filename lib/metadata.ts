@@ -34,7 +34,7 @@ const siteMetadata: SiteMetaData = {
   siteRepo: "https://github.com/StevenPss/website-2023",
   newsletterProvider: "mailerlite",
   newsletterUrl: "/posts",
-  analyticsProvider: "umami",
+  analyticsProvider: "google",
   defaultTheme: "system",
   activeAnnouncement: false,
   announcement: {

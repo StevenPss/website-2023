@@ -70,7 +70,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 place-items-start justify-between gap-12 lg:grid-cols-3">
             <div className="col-span-1 mx-auto flex flex-col items-center justify-center">
               <Image
-                src="/avatar-home.png"
+                src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/avatar-home.png"
                 alt={defaultAuthor.name}
                 width={400}
                 height={498}

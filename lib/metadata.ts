@@ -11,14 +11,14 @@ export const defaultAuthor: AuthorType = {
   name: "Steven Selolo",
   handle: "@stevenselolo",
   socialProfiles,
-  email: "steven@stevenselolo.com",
+  email: "steven@tutoconsulting.co.za",
   website: "https://stevenselolo.com",
   jobTitle: "Cloud Engineer",
   company: "Liquid Intelligent Technologies",
-  availableForWork: false,
+  availableForWork: true,
   location: {
     city: "Johannesburg",
-    media: "/joburg.jpg",
+    media: "https://website-2023-bucket.s3.af-south-1.amazonaws.com/joburg.jpg",
   },
 };
 
@@ -33,7 +33,7 @@ const siteMetadata: SiteMetaData = {
   description: defaultDescription,
   siteRepo: "https://github.com/StevenPss/website-2023",
   newsletterProvider: "mailerlite",
-  newsletterUrl: "#",
+  newsletterUrl: "/posts",
   analyticsProvider: "umami",
   defaultTheme: "system",
   activeAnnouncement: false,

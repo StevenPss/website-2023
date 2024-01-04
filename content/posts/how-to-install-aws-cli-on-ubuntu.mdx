@@ -1,0 +1,130 @@
+---
+title: "How to Install AWS CLI on Ubuntu"
+publishedDate: "2024-01-01"
+lastUpdatedDate: "2024-01-01"
+tags:
+  - aws
+  - aws cli
+  - aws iam identity center
+  - frontend
+description: The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands via your terminal. It provides direct access to the public APIs of AWS services.
+status: published
+---
+
+Getting started with AWS CLI on Ubuntu (Linux) consists of the following steps:
+
+1. Prerequisites
+2. Installing the latest version of AWS CLI
+3. Configuring AWS CLI (short-term credentials)
+
+## Prerequisites
+
+When running AWS CLI commands, the AWS CLI needs to have access to IAM credentials. It is recommended to not use your `root account` for this as it poses a security risk. If you use regular IAM you would be using long-term credentials which isn't recommended. AWS recommends the use of short-term credentials and this is one of the benefits provided by IAM Identity Center (I already have a post about setting this up). Using this aligns with the security best practices.
+
+Now let's get to the good part!
+
+## Installing the latest version of AWS CLI
+
+1. To install the latest version of AWS CLI, run the following commands on your terminal to download the latest zip file:
+
+```shell
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+```
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-install-aws-cli-on-ubuntu/Download+Zip.png" />
+
+2. Use the `unzip` command to extract files from the zip file:
+
+```shell
+unzip awscliv2.zip
+```
+
+3. Use the following command to install the AWS CLI:
+
+```shell
+sudo ./aws/install
+```
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-install-aws-cli-on-ubuntu/Install+CLI.png" />
+
+4. And lastly, check the installed version using the following command:
+
+```shell
+aws --version
+```
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-install-aws-cli-on-ubuntu/CLI+Version.png" />
+
+## Configuring AWS CLI (short-term credentials)
+
+Let's use the recommended `short-term` credentials. Here I will show you two ways in doing so:
+
+### Using AWS IAM Identity Center
+
+Firstly, using AWS IAM Identity Center. Note that you would need to have had it enabled to use it.
+
+```shell
+aws configure sso
+```
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-install-aws-cli-on-ubuntu/AWS+configure+sso.png" />
+
+_\* SSO start URL [None]: https://your-app-name.awsapps.com/start_
+
+### Using GetSessionToken
+
+Secondly, Using GetSessionToken to get a set of temporary credentials. Let's say that you have configured MFA for your IAM users and want to use short-term credentials for programmatic access. GetSessionToken would return credentials consisting of:
+
+- Access Key ID
+- Secret Access Key
+- Security Token
+
+With the help of AWS Security Token Service (AWS STS), a web service that enables you to request temporary, limited-privilege credentials for users.
+
+Running the following command:
+
+```shell
+aws sts get-session-token --serial-number arn:aws:iam::0123456789:mfa/testMFA --token-code 123456 -duration 129600
+```
+
+_**Note**: Replace_
+
+- `0123456789`: with your AWS arn account ID
+- `testMFA`: with your MFA device name
+- `123456`: with the MFA code currently displayed on your Authenticator app for the IAM user in question
+
+Would return the following output:
+
+```shell
+{
+  "Credentials": {
+    "AccessKeyId": "my-access-key-id",
+    "SecretAccessKey": "my-secret-access-key",
+    "SessionToken": "my-session-token",
+    "Expiration": "my-expiration-date-time"
+  }
+}
+```
+
+- Configure your `mfa` profile:
+
+```shell
+nano .aws/credentials
+```
+
+```shell
+[mfa]
+output = json
+region = af-south-1
+aws_access_key_id = my-access-key-id
+aws_secret_access_key = my-secret-access-key
+aws_session_token = my-session-token
+```
+
+- Test and see if you're be able to list the s3 buckets within your AWS account:
+
+```shell
+aws s3 ls s3://bucket-name --profile mfa
+```
+
+If you want to learn more about GetSessionToken, see [GetSessionToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html)

@@ -8,6 +8,9 @@ export async function POST(request: Request) {
   if (!email) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
   }
+
+  console.log("API KEY", process.env.EMAIL_API_KEY);
+
   try {
     const res = await fetch(API_URL, {
       method: "POST",

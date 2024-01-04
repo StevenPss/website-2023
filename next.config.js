@@ -13,6 +13,14 @@ const nextConfig = {
       destination: "/posts/get-started",
     },
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "website-2023-bucket.s3.af-south-1.amazonaws.com",
+      },
+    ],
+  },
 };
 
 module.exports = withContentlayer(nextConfig);

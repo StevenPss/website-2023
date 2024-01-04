@@ -1,0 +1,141 @@
+---
+title: "Setting Up AWS IAM Identity Center (SSO) and AWS Organizations"
+publishedDate: "2024-01-03"
+lastUpdatedDate: "2024-01-03"
+tags:
+  - aws
+  - iam
+  - aws iam identity center
+  - aws organizations
+description: Setting up AWS IAM Identity Center allows you to maintain a secure environment by controlling access, ensuring that only authorized individuals can access specific resources.
+status: published
+series:
+  order: 2
+  title: "AWS IAM Identity Center"
+---
+
+Getting started with AWS IAM Identity Center consists of the following steps:
+
+1. Enable IAM Identity Center
+2. Choose an Identity Source
+3. Create Users
+4. Create an Admin Permission Set
+5. Set Up Account Access for the Admin Identity Center User
+6. Testing everything!
+
+## Enable IAM Identity Center
+
+To get started, search for AWS IAM Identity Center and click on `Enable`:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/1.+Enable+-+IAM+Identity+Center.png" />
+
+You will get a modal window like the one below click on `Continue`:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Enable+-+IAM+Identity+Center+(continue).png" />
+
+This will get you set up with AWS IAM Identity Center and also create an AWS Organization for you which you can confirm by searching for AWS Organizations:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Created+AWS+Organization.png" />
+
+## Choose an Identity Center
+
+An Identity Source defines where your users and groups are managed. If you click on `Confirm Identity Source`:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/2.+Confirm+Identity+Source.png" />
+
+After scrolling down a bit you will see this section:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Change+Identity+Source.png" />
+
+1. By default, the source will be Identity Center Directory. This is where you would assign your users and groups as well as configure their level of access.
+2. You can change the default source by clicking on `Actions` and clicking on `Change Identity Source`.
+
+You will then see the following page below, you can proceed to configure the source but in our case I will use the default source:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Choose+identity+source.png" />
+
+## Create Users
+
+On the side navigation click on `Users` as seen on the image below. The users here are not the same users as the ones created in IAM.
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/3.+Create+Users.png" />
+
+### Click on `Add user`
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Add+User.png" />
+
+#### Specify user details
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Specify+user+details.png" />
+
+#### Add user to groups
+
+We're going to skip this optional step for now.
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Add+user+to+groups.png" />
+
+#### Review and add user
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Review+and+add+user.png" />
+
+Scroll down a bit and click on `Add user` after reviewing. You will see a One-time password modal window appear:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/One+time+password.png" />
+
+## Create an Admin Permission Set
+
+Permission sets consists of IAM roles that define the level of access that users and groups have within an AWS account. On the side navigation click on `Permission sets` and on the next page click on `Create permission set`
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/4.+Create+an+Admin+Permission+Set.png" />
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Create+permission+set.png" />
+
+#### Select permission set type
+
+We're going to go with the predefined permission set but feel free to try out the custom permission set.
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Select+permission+set+type.png" />
+
+Scrolling down a bit you will see `Policy for predefined permission set` that consists of AWS managed policies to select from. You can select whatever policy you need set but we will go with `AdministratorAccess` for this one
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Policy+for+predefined+permission+set.png" />
+
+#### Specify permission set details
+
+By filling in the `Permission set name`, `Description`, `Session duration` which is the length of time a user can be logged on before the console logs them out of their session, and an optional Relay state.
+
+Click `Next`.
+
+#### Review and create
+
+If you're done reviewing click on `Create`
+
+## Set Up Account Access for the Admin Identity Center User
+
+1. Click on `AWS accounts` from the side navigation and
+2. Click `Assign users or groups`
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/5.+AWS+accounts.png" />
+
+#### Assign users and groups to "Your Username"
+
+1. Select the Users tab and select your earlier created user. Click `Next` and Assign permission sets to that user. When done Click `Next`.
+2. Review and submit assignments by clicking on `Submit`
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/Assign+users+and+groups.png" />
+
+## Testing everything!
+
+- Login using your AWS access portal URL - https://your-app-name.awsapps.com/start
+  It will ask for your username and password. Make sure to enter the ones that you've copied earlier.
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/AWS+access+portal+URL.png" />
+
+- You will then be required to set up MFA. Select `Authenticator app` and set it up.
+
+Finally, once everything has been set up and you've successfully managed to login you will see the following page:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/AWS+portal+sso+accounts.png" />
+
+- The other cool benefit of this is that it allows you to use the recommended short-term credentials.
+
+`Congratulations` for making it this far.

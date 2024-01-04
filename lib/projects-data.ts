@@ -6,4 +6,11 @@ export const projects = [
     mediaSrc: "",
     mediaType: "",
   },
+  {
+    title: "Orion",
+    description: `SaaS WIP`,
+    href: "#",
+    mediaSrc: "",
+    mediaType: "",
+  },
 ];

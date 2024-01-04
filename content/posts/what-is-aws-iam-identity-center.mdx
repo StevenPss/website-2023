@@ -1,0 +1,36 @@
+---
+title: "What is AWS IAM Identity Center (SSO)?"
+publishedDate: "2024-01-02"
+lastUpdatedDate: "2024-01-03"
+tags:
+  - aws
+  - iam
+  - aws iam identity center
+description: "AWS IAM Identity Center is a free recommended AWS service for managing human user access to AWS resources. It is a single place where you can assign your workforce users, also known as workforce identities, consistent access to multiple AWS accounts and applications."
+status: published
+series:
+  order: 1
+  title: "AWS IAM Identity Center"
+---
+
+AWS IAM Identity Center, previously known as Single Sign-On or SSO, provides single login access across all AWS accounts, leveraging AWS Organizations that enable users to centrally manage and control groups of AWS accounts and the workflows and policies that apply to them.
+
+AWS IAM Identity Center, comes with preconfigured settings for many cloud applications, including Salesforce, Box, and Microsoft 365. But you have to enable it. You can use multiple external identity providers, such as Microsoft Entra ID, Google Workspace, or Okta. For a list of supported identity providers and their documentation, see [supported identity providers](https://docs.aws.amazon.com/singlesignon/latest/userguide/supported-idps.html)
+
+## Without (AWS IAM Identity Center) - Regular IAM
+
+In this case, you would be using regular Identity and Access Management (IAM), and managing accounts would be as depicted in the diagram below:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/what-is-aws-iam-identity-center/regular-iam.png" />
+
+A single developer working on these individual accounts would have to switch between them and individually manage access keys for each account. If the dev is currently working on the Dev account and has to quickly check something on the Test account, they would have to sign in to the Test account using a different set of credentials to gain access to that account. Imagine 100 developers working on different AWS accounts every day doing this. You can already see how tedious this would be.
+
+## With (AWS IAM Identity Center)
+
+By enabling AWS IAM Identity Center, you can centrally manage access to AWS accounts utilizing AWS Organizations. Through AWS IAM Identity Center, you can better manage console access, CLI access, and programmatic access (secret access keys etc..). This provides you with some flexibility. Now your developers can access all AWS accounts and cloud applications to which they have permissions through a simple web portal available through single sign-on.
+
+Well, if you're wondering how this looks it looks like this:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/how-to-set-up-aws-iam-identity-center-and-aws-organizations/AWS+portal+sso+accounts.png" />
+
+I hope you now have a better understanding of AWS IAM Identity Center and are eargerly waiting to implement it yourself. I'm ready when you are!

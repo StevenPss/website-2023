@@ -1,0 +1,59 @@
+---
+title: "What is DNS?"
+publishedDate: "2024-02-14"
+lastUpdatedDate: "2024-02-14"
+tags:
+  - dns
+  - networking
+  - cloud
+description: "Domain Name Systems also commonly referred to as DNS. What is it? How does it work? Why should you care?"
+status: published
+series:
+  order: 1
+  title: "What is DNS?"
+---
+
+_What's your name? Wait.. don't tell me. You're a human aren't you?_ In the world of networking, computers don't go by names like us humans do, they go by numbers. Why? Because that's how computers communicate to one another, it's their language just as how we humans communicate in our respective languages.
+
+## How do they communicate?
+
+- Computers communicate using something called **IP addresses** which looks like this e.g. 192.168.0.23
+- For humans and computers to be able to communicate we need to use a common language; to bridge the gap... **DNS** was born
+
+## How it works?
+
+Domain Name Systems aka DNS for short resolves domain names to IP addresses.
+
+Let's breakdown how it works. Take a look at the image below:
+
+<img src="https://website-2023-bucket.s3.af-south-1.amazonaws.com/posts/what-is-dns/DNS.png" />
+
+### Step 0 - Browser
+
+When you type a url into the browser e.g. _domain.com_. You are basically asking the DNS resolver (think of this as your ISP), _"hey do you know where I can find the IP address of domain.com?"_ Your browser sends requests to the DNS resolver asking it to provide information related to _domain.com_.
+
+### Step 1 - DNS resolver
+
+The **DNS resolver** checks it's cache, think of the DNS resolver as a phonebook. In a phonebook you don't just start searching using numbers instead you do this using names to locate the numbers. The DNS resolver is the same, it checks for existing entry in it's cache if the entry doesn't exist it then inquires of the **Root Server**. _"hey Root Server do you know where I can find the IP address of domain.com? Cause I have no idea"_
+
+### Step 2 - Root Server
+
+The **Root Server** starts your journey to getting to your webpage. There are 13 unique Root Servers stratigically placed around the world managed by 12 different organizations. The Root Server will forward the request to the **Top Level Domain (TLD) Server**. _"hey TLD Server do you know where I can find the IP address of domain.com? I know you manage .com domains so you must know"_
+
+### Step 3 - TLD Server
+
+The **Top Level Domain (TLD) Server** is reponsible for storing all information for TLD e.g. .com, .co.za, .org etc.. But it won't know the IP address of _domain.com_ instead it will direct the request to the Auth Server
+
+### Step 4 - Auth Server
+
+The **Auth (Authoritative) Server** is the last stop of the DNS lookup. It is responsible for knowing everything about the domain which includes the IP address. The Auth Server will respond to the request and provide the IP address of _domain.com_. Finally the DNS resolver will tell your browser the IP address of _domain.com_
+
+### Step 5 - Cache
+
+The DNS resolver will store the IP address of _domain.com_ in it's cache to avoid going through this process for this domain. Once the IP address reaches your browser the webpage will load.
+
+## Why should you care?
+
+- It's how the world of networking operates. It's important to understand DNS as it helps with troubleshooting issues related to domains.
+
+And that's it folks.

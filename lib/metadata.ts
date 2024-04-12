@@ -11,7 +11,7 @@ export const defaultAuthor: AuthorType = {
   name: "Steven Selolo",
   handle: "@stevenselolo",
   socialProfiles,
-  email: "steven@tutoconsulting.co.za",
+  email: "steven@stevenselolo.com",
   website: "https://stevenselolo.com",
   jobTitle: "Cloud Engineer",
   company: "Liquid Intelligent Technologies",
